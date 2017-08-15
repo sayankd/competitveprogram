@@ -1,7 +1,9 @@
 package coding;
 
 import java.util.Scanner;
-
+//For big number like 1000 digit number fibonacci using dp will be difficult so  covertted in to matrix and use matrix exponentiation
+//As last two digits of fibonacci repeats if we can count for a particular m where it start repeating then instead use of n 
+//can use n%p
 public class fibonaccli2 {
 	
 	public static void main(String args[])
@@ -37,6 +39,8 @@ public class fibonaccli2 {
 		System.out.println("Time taken ."+(endtime - startTime)/100000000 + " s");
 		
 	}
+//For a large number modulo will be very costly so iterating through array to find it it will take o(log n) time where n
+//is the 1000 digit number
 	private static int moduloof(int[] arr, int n, int p) {
 		int i,temp = 0;;
 		for(i=n-1;i>=0;i--)
@@ -56,6 +60,7 @@ public class fibonaccli2 {
 		}
 		return arr;
 	}
+//Counting period for a particular m
 	private static int period(int m)
 	{
 		int a=-1,b=-1,c=-1,d=-1,count=0;
@@ -72,6 +77,7 @@ public class fibonaccli2 {
 		}
 		return (2*count);
 	}
+//Exponentiation operation in log n time by using T(n) = T(n/2)+c
 	public static int[][] power(int[][] fib,int r,int c,int n,int m)
 	{
 		int [][] ans = new int[2][2];
